@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/bootsrap/css/bootstrap.min.css" />
+ </head>
+ <body>
+  <div class="container-fluid">
+   <form id="AcountDetailForm" action="" method="POST">
+    <div class="card mt-3 shadow">
+     <div class="card-body mt-2 P-3">
+      <div class="row">
+       <div class="col">
+        <div class="font20 font600">Personal Details</div>
+        <div class="font14 font500 grey_color">
+         Update your photo and personal details here.
+        </div>
+       </div>
+      </div>
+      <div class="row mt-5 mb-3">
+       <div class="col-md-3">
+        <span class="font14 font600">Your photo</span>
+        <div>
+         <span class="font14 grey_color"
+          >This will be displayed on your profile</span
+         >
+        </div>
+       </div>
+       <div class="col-md-4 d-flex">
+        <div class="col-md-5 d-flex">
+         <img id="output" width="100" height="100" />&nbsp;&nbsp;
+         <div class="d-flex mt-3">
+          <label for="file" style="cursor: pointer" class="uploadbutton"
+           >Upload</label
+          >
+          <input
+           class="btn btn-primary subscription bg-clr mt-5"
+           type="file"
+           accept="image/*"
+           name="image"
+           id="file"
+           onchange="loadFile(event)"
+           style="display: none"
+           value="upload"
+          />
+          <input
+           class="btn btn-primary subscription clr mx-2 delete"
+           type="button"
+           value="Delete"
+          />
+         </div>
+        </div>
+       </div>
+      </div>
+
+      <div class="row">
+       <div class="col-md-3">
+        <span class="font14 font600">Your Details</span>
+        <div>
+         <span class="font14 grey_color">Update your name, contact number</span>
+        </div>
+       </div>
+       <div class="col-md-4 mt-2">
+        <label for="firstname">First Name</label>
+        <input
+         id="firstname"
+         class="form-control shadow"
+         type="text"
+         placeholder="Enter your first name"
+         required
+         autofocus=""
+        />
+       </div>
+       <div class="col-md-5 mt-2">
+        <label for="lastname">Last Name</label>
+        <input
+         id="lastname"
+         type="text"
+         class="form-control shadow"
+         placeholder="Enter your Last name "
+         required
+        />
+       </div>
+      </div>
+      <div class="row">
+       <div class="col-md-3 mt-2"></div>
+       <div class="col-md-4 mt-2">
+        <label for="emailaddress">Email Address</label>
+        <input
+         id="emailaddress"
+         class="form-control shadow"
+         type="text"
+         placeholder="Enter your EmailAddress "
+         required
+        />
+       </div>
+       <div class="col-md-5 mt-2">
+        <label for="mobilenumber">Mobile Number</label>
+        <input
+         id="mobilenumber"
+         class="form-control shadow"
+         type="text"
+         placeholder="Enter your mobile number "
+         required
+        />
+       </div>
+      </div>
+      <div class="row">
+       <div class="col-md-3 mt-2"></div>
+       <div class="col-md-8 mt-2">
+        <label for="companyName">Company Name</label>
+        <input
+         id="companyname"
+         class="form-control shadow"
+         type="text"
+         placeholder="Enter your Company Name "
+         required
+        />
+       </div>
+      </div>
+      <div class="mt-4 mb-4">
+       <hr />
+      </div>
+      <div class="row">
+       <div class="col-md-3 mt-2">
+        <label for="" class="form-label font14 font600">
+         Your Preferences </label
+        ><br />
+       </div>
+       <div class="col-md-4 mt-2">
+        <label for="timezone">Select your timezone </label><br />
+        <select id="timezone" class="form-control shadow">
+         <option>select timezone</option>
+         <option value=" -12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+         <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+         <option value="-10:00">(GMT -10:00) Hawaii</option>
+         <option value="-09:50">(GMT -9:30) Taiohae</option>
+         <option value="-09:00">(GMT -9:00) Alaska</option>
+         <option value="-08:00">
+          (GMT -8:00) Pacific Time (US &amp; Canada)
+         </option>
+         <option value="-07:00">
+          (GMT -7:00) Mountain Time (US &amp; Canada)
+         </option>
+         <option value="-06:00">
+          (GMT -6:00) Central Time (US &amp; Canada), Mexico City
+         </option>
+         <option value="-05:00">
+          (GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima
+         </option>
+         <option value="-04:50">(GMT -4:30) Caracas</option>
+         <option value="-04:00">
+          (GMT -4:00) Atlantic Time (Canada), Caracas, La Paz
+         </option>
+         <option value="-03:50">(GMT -3:30) Newfoundland</option>
+         <option value="-03:00">
+          (GMT -3:00) Brazil, Buenos Aires, Georgetown
+         </option>
+         <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+         <option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
+         <option value="+00:00" selected="selected">
+          (GMT) Western Europe Time, London, Lisbon, Casablanca
+         </option>
+         <option value="+01:00">
+          (GMT +1:00) Brussels, Copenhagen, Madrid, Paris
+         </option>
+         <option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
+         <option value="+03:00">
+          (GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg
+         </option>
+         <option value="+03:50">(GMT +3:30) Tehran</option>
+         <option value="+04:00">
+          (GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi
+         </option>
+         <option value="+04:50">(GMT +4:30) Kabul</option>
+         <option value="+05:00">
+          (GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent
+         </option>
+         <option value="+05:50">
+          (GMT +5:30) Bombay, Calcutta, Madras, New Delhi
+         </option>
+         <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+         <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+         <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+         <option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+         <option value="+08:00">
+          (GMT +8:00) Beijing, Perth, Singapore, Hong Kong
+         </option>
+         <option value="+08:75">(GMT +8:45) Eucla</option>
+         <option value="+09:00">
+          (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk
+         </option>
+         <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+         <option value="+10:00">
+          (GMT +10:00) Eastern Australia, Guam, Vladivostok
+         </option>
+         <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+         <option value="+11:00">
+          (GMT +11:00) Magadan, Solomon Islands, New Caledonia
+         </option>
+         <option value="+11:50">(GMT +11:30) Norfolk Island</option>
+         <option value="+12:00">
+          (GMT +12:00) Auckland, Wellington, Fiji, Kamchatka
+         </option>
+         <option value="+12:75">(GMT +12:45) Chatham Islands</option>
+         <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+         <option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
+        </select>
+       </div>
+
+       <div class="col-md-5 mt-2">
+        <label for="currency ">Currency </label><br />
+        <select id="currency" class="form-control shadow" name="currency">
+         <option>select currency</option>
+         <option value="AFN">Afghan Afghani</option>
+         <option value="ALL">Albanian Lek</option>
+         <option value="DZD">Algerian Dinar</option>
+         <option value="AOA">Angolan Kwanza</option>
+         <option value="ARS">Argentine Peso</option>
+         <option value="AMD">Armenian Dram</option>
+         <option value="AWG">Aruban Florin</option>
+         <option value="AUD">Australian Dollar</option>
+         <option value="AZN">Azerbaijani Manat</option>
+         <option value="BSD">Bahamian Dollar</option>
+         <option value="BHD">Bahraini Dinar</option>
+         <option value="BDT">Bangladeshi Taka</option>
+         <option value="BBD">Barbadian Dollar</option>
+         <option value="BYR">Belarusian Ruble</option>
+         <option value="BEF">Belgian Franc</option>
+         <option value="BZD">Belize Dollar</option>
+         <option value="BMD">Bermudan Dollar</option>
+         <option value="BTN">Bhutanese Ngultrum</option>
+         <option value="BTC">Bitcoin</option>
+         <option value="BOB">Bolivian Boliviano</option>
+         <option value="BAM">Bosnia-Herzegovina Convertible Mark</option>
+         <option value="BWP">Botswanan Pula</option>
+         <option value="BRL">Brazilian Real</option>
+         <option value="GBP">British Pound Sterling</option>
+         <option value="BND">Brunei Dollar</option>
+         <option value="BGN">Bulgarian Lev</option>
+         <option value="BIF">Burundian Franc</option>
+         <option value="KHR">Cambodian Riel</option>
+         <option value="CAD">Canadian Dollar</option>
+         <option value="CVE">Cape Verdean Escudo</option>
+         <option value="KYD">Cayman Islands Dollar</option>
+         <option value="XOF">CFA Franc BCEAO</option>
+         <option value="XAF">CFA Franc BEAC</option>
+         <option value="XPF">CFP Franc</option>
+         <option value="CLP">Chilean Peso</option>
+         <option value="CNY">Chinese Yuan</option>
+         <option value="COP">Colombian Peso</option>
+         <option value="KMF">Comorian Franc</option>
+         <option value="CDF">Congolese Franc</option>
+         <option value="CRC">Costa Rican ColÃ³n</option>
+         <option value="HRK">Croatian Kuna</option>
+         <option value="CUC">Cuban Convertible Peso</option>
+         <option value="CZK">Czech Republic Koruna</option>
+         <option value="DKK">Danish Krone</option>
+         <option value="DJF">Djiboutian Franc</option>
+         <option value="DOP">Dominican Peso</option>
+         <option value="XCD">East Caribbean Dollar</option>
+         <option value="EGP">Egyptian Pound</option>
+         <option value="ERN">Eritrean Nakfa</option>
+         <option value="EEK">Estonian Kroon</option>
+         <option value="ETB">Ethiopian Birr</option>
+         <option value="EUR">Euro</option>
+         <option value="FKP">Falkland Islands Pound</option>
+         <option value="FJD">Fijian Dollar</option>
+         <option value="GMD">Gambian Dalasi</option>
+         <option value="GEL">Georgian Lari</option>
+         <option value="DEM">German Mark</option>
+         <option value="GHS">Ghanaian Cedi</option>
+         <option value="GIP">Gibraltar Pound</option>
+         <option value="GRD">Greek Drachma</option>
+         <option value="GTQ">Guatemalan Quetzal</option>
+         <option value="GNF">Guinean Franc</option>
+         <option value="GYD">Guyanaese Dollar</option>
+         <option value="HTG">Haitian Gourde</option>
+         <option value="HNL">Honduran Lempira</option>
+         <option value="HKD">Hong Kong Dollar</option>
+         <option value="HUF">Hungarian Forint</option>
+         <option value="ISK">Icelandic KrÃ³na</option>
+         <option value="INR">Indian Rupee</option>
+         <option value="IDR">Indonesian Rupiah</option>
+         <option value="IRR">Iranian Rial</option>
+         <option value="IQD">Iraqi Dinar</option>
+         <option value="ILS">Israeli New Sheqel</option>
+         <option value="ITL">Italian Lira</option>
+         <option value="JMD">Jamaican Dollar</option>
+         <option value="JPY">Japanese Yen</option>
+         <option value="JOD">Jordanian Dinar</option>
+         <option value="KZT">Kazakhstani Tenge</option>
+         <option value="KES">Kenyan Shilling</option>
+         <option value="KWD">Kuwaiti Dinar</option>
+         <option value="KGS">Kyrgystani Som</option>
+         <option value="LAK">Laotian Kip</option>
+         <option value="LVL">Latvian Lats</option>
+         <option value="LBP">Lebanese Pound</option>
+         <option value="LSL">Lesotho Loti</option>
+         <option value="LRD">Liberian Dollar</option>
+         <option value="LYD">Libyan Dinar</option>
+         <option value="LTL">Lithuanian Litas</option>
+         <option value="MOP">Macanese Pataca</option>
+         <option value="MKD">Macedonian Denar</option>
+         <option value="MGA">Malagasy Ariary</option>
+         <option value="MWK">Malawian Kwacha</option>
+         <option value="MYR">Malaysian Ringgit</option>
+         <option value="MVR">Maldivian Rufiyaa</option>
+         <option value="MRO">Mauritanian Ouguiya</option>
+         <option value="MUR">Mauritian Rupee</option>
+         <option value="MXN">Mexican Peso</option>
+         <option value="MDL">Moldovan Leu</option>
+         <option value="MNT">Mongolian Tugrik</option>
+         <option value="MAD">Moroccan Dirham</option>
+         <option value="MZM">Mozambican Metical</option>
+         <option value="MMK">Myanmar Kyat</option>
+         <option value="NAD">Namibian Dollar</option>
+         <option value="NPR">Nepalese Rupee</option>
+         <option value="ANG">Netherlands Antillean Guilder</option>
+         <option value="TWD">New Taiwan Dollar</option>
+         <option value="NZD">New Zealand Dollar</option>
+         <option value="NIO">Nicaraguan CÃ³rdoba</option>
+         <option value="NGN">Nigerian Naira</option>
+         <option value="KPW">North Korean Won</option>
+         <option value="NOK">Norwegian Krone</option>
+         <option value="OMR">Omani Rial</option>
+         <option value="PKR">Pakistani Rupee</option>
+         <option value="PAB">Panamanian Balboa</option>
+         <option value="PGK">Papua New Guinean Kina</option>
+         <option value="PYG">Paraguayan Guarani</option>
+         <option value="PEN">Peruvian Nuevo Sol</option>
+         <option value="PHP">Philippine Peso</option>
+         <option value="PLN">Polish Zloty</option>
+         <option value="QAR">Qatari Rial</option>
+         <option value="RON">Romanian Leu</option>
+         <option value="RUB">Russian Ruble</option>
+         <option value="RWF">Rwandan Franc</option>
+         <option value="SVC">Salvadoran ColÃ³n</option>
+         <option value="WST">Samoan Tala</option>
+         <option value="SAR">Saudi Riyal</option>
+         <option value="RSD">Serbian Dinar</option>
+         <option value="SCR">Seychellois Rupee</option>
+         <option value="SLL">Sierra Leonean Leone</option>
+         <option value="SGD">Singapore Dollar</option>
+         <option value="SKK">Slovak Koruna</option>
+         <option value="SBD">Solomon Islands Dollar</option>
+         <option value="SOS">Somali Shilling</option>
+         <option value="ZAR">South African Rand</option>
+         <option value="KRW">South Korean Won</option>
+         <option value="XDR">Special Drawing Rights</option>
+         <option value="LKR">Sri Lankan Rupee</option>
+         <option value="SHP">St. Helena Pound</option>
+         <option value="SDG">Sudanese Pound</option>
+         <option value="SRD">Surinamese Dollar</option>
+         <option value="SZL">Swazi Lilangeni</option>
+         <option value="SEK">Swedish Krona</option>
+         <option value="CHF">Swiss Franc</option>
+         <option value="SYP">Syrian Pound</option>
+         <option value="STD">São Tomé and Príncipe Dobra</option>
+         <option value="TJS">Tajikistani Somoni</option>
+         <option value="TZS">Tanzanian Shilling</option>
+         <option value="THB">Thai Baht</option>
+         <option value="TOP">Tongan pa'anga</option>
+         <option value="TTD">Trinidad & Tobago Dollar</option>
+         <option value="TND">Tunisian Dinar</option>
+         <option value="TRY">Turkish Lira</option>
+         <option value="TMT">Turkmenistani Manat</option>
+         <option value="UGX">Ugandan Shilling</option>
+         <option value="UAH">Ukrainian Hryvnia</option>
+         <option value="AED">United Arab Emirates Dirham</option>
+         <option value="UYU">Uruguayan Peso</option>
+         <option value="USD">US Dollar</option>
+         <option value="UZS">Uzbekistan Som</option>
+         <option value="VUV">Vanuatu Vatu</option>
+         <option value="VEF">Venezuelan BolÃ­var</option>
+         <option value="VND">Vietnamese Dong</option>
+         <option value="YER">Yemeni Rial</option>
+         <option value="ZMK">Zambian Kwacha</option>
+        </select>
+       </div>
+      </div>
+      <div class="mt-4 mb-4">
+       <hr />
+      </div>
+      <div class="row">
+       <div class="col-md-3 mt-2">
+        <span class="font14 font600">Subdomain</span>
+       </div>
+       <div class="col-md-6">
+        <input
+         type="text"
+         class="form-control shadow"
+         id="subdomain"
+         placeholder="Helooalso"
+        />
+       </div>
+       <div class="col-md-2 mt-2">
+        <span class="font14 font500">Seqops.io</span>
+       </div>
+      </div>
+      <div class="row">
+       <div class="col-md-3"></div>
+       <div class="col-md-8 subdomain">
+        Your subdomain on seqops is
+        <b>www.helooalso.seqops.io</b>
+       </div>
+      </div>
+      <div class="mt-4 mb-4">
+       <hr />
+      </div>
+      <div class="row mb-4">
+       <div class="col-md-3 mt-2">
+        <span class="font14 font600">password</span>
+       </div>
+       <div class="col-md-8 mt-2">
+        <input
+         class="btn btn-primary subscription bg-clr"
+         type="button"
+         value="Update your password"
+        />&nbsp;
+       </div>
+      </div>
+     </div>
+    </div>
+   </form>
+  </div>
+
+  <script>
+   //image validation
+   var loadFile = function (event) {
+    var image = document.getElementById("output");
+    image.src = URL.createObjectURL(event.target.files[0]);
+   };
+  </script>
+ </body>
+</html>

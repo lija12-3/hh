@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/bootsrap/css/bootstrap.min.css" />
+  <script src="/static/js/index.js" type="defer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <main>
+      <div class="card bordernone shadow">
+        <div class="card-body p-5">
+          <div class="row">
+            <!-- //mainform -->
+            <div class="col-lg-6">
+              <div class="font20 font600" id="accountdetails">Account details</div>
+              <div class="card p-3 mt-4 rounded" id="accountdetailsbox">
+                <form id="form" action="" method="">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="cname">Company Name</label>
+                      <input id="cname" type="text" name="companyname" class="form-control shadow"
+                        placeholder="Enter the Company Name" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="customerid">Customer ID</label>
+                      <input id="customerid" type="text" name="customerid" class="form-control shadow"
+                        placeholder="Enter the Customer ID" required />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-6 input-control">
+                      <label for="pname">Partner</label>
+                      <input id="pname" type="text" class="form-control shadow" name="partnername"
+                        placeholder="Enter the partner name" required />
+                    </div>
+                    <div class="col-md-6 input-control">
+                      <label for="vatid">VAT ID </label>
+                      <input id="vatid" type="text" class="form-control shadow" name="vatid"
+                        placeholder="Enter the VAT ID " required />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-6 input-control">
+                      <label for="adline1">Address Line1</label>
+                      <input id="adline1" type="text" class="form-control shadow" name="addressline1"
+                        placeholder="Enter the Address 1" required />
+                    </div>
+                    <div class="col-md-6 input-control">
+                      <label for="adline2">Address Line 2 </label>
+                      <input id="adline2" type="text" class="form-control shadow" name="adressline2"
+                        placeholder="Enter the Addressline 2 " required />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-6 input-control">
+                      <label for="country">Country</label>
+                      <input id="country" type="text" class="form-control shadow" name="countryname"
+                        placeholder="Enter the country Name" required />
+                    </div>
+                    <div class="col-md-6 input-control">
+                      <label for="city">City </label>
+                      <input id="city" type="text" class="form-control shadow" name="cityname"
+                        placeholder="Enter the City name " required />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-6 input-control">
+                      <label for="zipcode">Zipcode</label>
+                      <input id="zipcode" type="text" class="form-control shadow" name="zipcode"
+                        placeholder="Enter the zipcode" required />
+                    </div>
+                  </div>
+                  <div class="row mt-2">
+                    <div class="col-md-6 input-control">
+                      <label for="contactnumber">Contact number</label>
+                      <input id="phone" type="tel" class="form-control shadow" name="phone" />
+                    </div>
+                  </div>
+
+                  <button class="btn btn-primary bg-clr my-4" type="button" id="cancel">
+                    Cancel
+                  </button>
+
+                  <button class="btn btn-primary bg-clr my-4" id="savebutton" type="submit" value="Save details">
+                    Save details
+                  </button>
+                </form>
+              </div>
+              <div class="card p-3 my-4 rounded" id="accountdetailsbox1">
+                <div class="row">
+                  <div class="col-sm-7">
+                    <span class="font24 font600">Reset password</span>
+                    <div>
+                      once the password is reset, the partner <br />will not able to login
+                      with their old password
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <button class="btn btn-primary bg-clr my-4 float-end" id="resetbutton" type="button">
+                      Reset partner password
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- //main form ends -->
+
+              <!-- //edit form starts -->
+
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <label>Company Name</label>
+                  <span class="float-end" id="companyname"> </span>
+                </li>
+                <li class="list-group-item ">
+                  <label>Customer ID</label>
+                  <span class="float-end" id="custmrid"> </span>
+                </li>
+                <li class="list-group-item">
+                  <label>VAT ID</label>
+                  <span class="float-end" id="vattid"> </span>
+                </li>
+                <li class="list-group-item">
+                  <label>Partner</label>
+                  <span class="float-end" id="partner"> </span>
+                </li>
+                <li class="list-group-item">
+                  <label>Address 1</label>
+                  <span class="float-end" id="address1"></span>
+                </li>
+                <li class="list-group-item">
+                  <label>Address 2</label>
+                  <span class="float-end" id="addressline2"></span>
+                </li>
+                <li class="list-group-item">
+                  <label>Country</label>
+                  <span class="float-end" id="countryy"></span>
+                </li>
+                <li class="list-group-item">
+                  <label>zipcode</label>
+                  <span class="float-end" id="zipcodee"></span>
+                </li>
+                <li class="list-group-item">
+                  <label>Company Contact number</label>
+                  <label class="col-5" id="CompanyContactnumber"></label>
+                  <div>
+                    <input class="btn btn-primary bg-clr mt-4" id="editbutton" type="button" value="Edit Details" />
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- //editform ends -->
+            <!-- //contact form daniel's -->
+            <div class="col-lg-6">
+              <div class="font20 font600" id="contactdetails">
+                Contact user details
+              </div>
+              <ul class="list-group mt-4 rounded">
+                <li class="list-group-item">
+                  <div class="row">
+                    <label for="file" style="cursor: pointer">Upload Image</label>
+                    <div>
+                      <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                        style="display: none" />
+                      <img id="output" width="100" height="100" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-7">Contact First name</div>
+                    <div class="col-5"></div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-7">Contact Last name</div>
+                    <div class="col-5"></div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-7">Email Address</div>
+                    <div class="col-5"></div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-7">Mobile number</div>
+                    <div class="col-5"></div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-7">Mobile number</div>
+                    <div class="col-5"></div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div>
+                    <input class="btn btn-primary bg-clr mt-4" type="button" value="Login to user portal" />
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- //contact form of daniel ends -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/jquery.js"></script>
+  <script>
+    ////mobile number validation
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      preferredCountries: ["us", "co", "in", "de"],
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+    });
+    //image validation
+    var loadFile = function (event) {
+      var image = document.getElementById("output");
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    //jquery for color border for input entry
+    $("#savebutton").click(function () {
+      $("input").each(function () {
+        if ($(this).val() == "") {
+          $(this).css("border", "1px solid red");
+        }
+      });
+    });
+    $("input").change(function () {
+      if ($(this).val() !== "") {
+        $(this).css("border", "1px solid green");
+      }
+    });
+    //reset the input values entered
+    $("#cancel").click(function () {
+      $(this).closest('form').find("input[type=text], textarea").val("");
+    });
+    //LOADING DATA
+    $(document).ready(function () {
+      $("#savebutton").click(function () {
+        $("#companyname").html(
+          $("#cname").val()
+
+        );
+        $("#custmrid").html(
+          $("#customerid").val()
+
+        );
+        $("#vattid").html(
+          $("#vatid").val()
+
+        );
+        $("#partner").html(
+          $("#pname").val()
+
+        );
+        $("#address1").html(
+          $("#adline1").val()
+
+        );
+        $("#addressline2").html(
+          $("#adline2").val()
+        );
+        $("#countryy").html(
+          $("#country").val()
+        );
+        $("#CompanyContactnumber").html(
+          $("#phone").val()
+        );
+        $("#zipcodee").html(
+          $("#zipcode").val()
+        );
+      });
+    });
+    //loading resetpartnerpasswordpage
+    $('#resetbutton').click(function () {
+      window.location.href = './resetpartnerpassword.html';
+    })
+
+  </script>
+</body>
+</html>

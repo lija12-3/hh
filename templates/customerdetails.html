@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="card d6 mt-2 bordernone">
+        <div class="card-body p-5">
+            <div class="row">
+                <div class="col">
+                    <div class="font20 font600 float-start">Customer Details</div>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-outline-secondary float-end">
+                        Download XLS</button><br /><br />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-start">
+                        <select class="form-select selecttag" aria-label="Default select example">
+                            <option selected>Product Type</option>
+                            <option value="1">Business</option>
+                            <option value="2">Starter</option>
+                            <option value="3">Premium</option>
+                        </select>&ensp;
+                        <select class="form-select selecttag" aria-label="Default select example ">
+                            <option selected>Partner Name</option>
+                            <option value="1">Business</option>
+                            <option value="2">Starter</option>
+                            <option value="3">Premium</option>
+                        </select>&ensp;
+                        <select class="form-select selecttag" aria-label="Default select example">
+                            <option selected>Display-10</option>
+                            <option value="1">Business</option>
+                            <option value="2">Starter</option>
+                            <option value="3">Premium</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="float-end">
+                        <div class="search-container">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                            <input type="text" id="search" placeholder="Search...." name="search" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-0">
+                <hr />
+            </div>
+            <p id="showData"></p>
+        </div>
+    </div>
+    <script src="/static/js/jquery.js"></script>
+    <script>
+        const billingHistory = [
+            {
+                Invoice: "1",
+                Amount: "Challenging Times",
+                Date: "Business",
+                Status: "125.60",
+                "": "invoice",
+            },
+            {
+                Invoice: "2",
+                Amount: "Learn JavaScript",
+                Date: "Programming",
+                Status: "56.00",
+                "": "invoice",
+            },
+            {
+                Invoice: "3",
+                Amount: "Popular Science",
+                Date: "Science",
+                Status: "210.40",
+                "": "invoice",
+            },
+            {
+                Invoice: "1",
+                Amount: "Challenging Times",
+                Date: "Business",
+                Status: "125.60",
+                "": "invoice",
+            },
+            {
+                Invoice: "2",
+                Amount: "Learn JavaScript",
+                Date: "Programming",
+                Status: "56.00",
+                "": "invoice",
+            },
+            {
+                Invoice: "3",
+                Amount: "Popular Science",
+                Date: "Science",
+                Status: "210.40",
+                "": "invoice",
+            },
+            {
+                Invoice: "1",
+                Amount: "Challenging Times",
+                Date: "Business",
+                Status: "125.60",
+                "": "invoice",
+            },
+            {
+                Invoice: "2",
+                Amount: "Learn JavaScript",
+                Date: "Programming",
+                Status: "56.00",
+                "": "invoice",
+            },
+            {
+                Invoice: "3",
+                Amount: "Popular Science",
+                Date: "Science",
+                Status: "210.40",
+                "": "invoice",
+            },
+            {
+                Invoice: "1",
+                Amount: "Challenging Times",
+                Date: "Business",
+                Status: "125.60",
+                "": "invoice",
+            },
+            {
+                Invoice: "2",
+                Amount: "Learn JavaScript",
+                Date: "Programming",
+                Status: "56.00",
+                "": "invoice",
+            },
+            {
+                Invoice: "3",
+                Amount: "Popular Science",
+                Date: "Science",
+                Status: "210.40",
+                "": "invoice",
+            },
+        ];
+
+        // Extract value from table header.
+        // ('invoice', 'amount', 'date' and 'status')
+        let col = [];
+        for (let i = 0; i < billingHistory.length; i++) {
+            for (let key in billingHistory[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // Create table.
+        const table = document.createElement("table");
+
+        // Create table header row using the extracted headers above.
+        let tr = table.insertRow(-1); // table row.
+
+        for (let i = 0; i < col.length; i++) {
+            let th = document.createElement("th"); // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // add json data to the table as rows.
+        for (let i = 0; i < billingHistory.length; i++) {
+            tr = table.insertRow(-1);
+
+            for (let j = 0; j < col.length; j++) {
+                let tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = billingHistory[i][col[j]];
+            }
+        }
+
+        // Now, add the newly created table with json data, to a container.
+        const divShowData = document.getElementById("showData");
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+
+        // searching data
+        $(document).ready(function () {
+            $('#search').keyup(function () {
+                search_table($(this).val());
+            });
+            function search_table(value) {
+                $('table tr').each(function () {
+                    var found = 'false';
+                    $(this).each(function () {
+                        if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                            found = 'true';
+                        }
+                    });
+                    if (found == 'true') {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+                    }
+                });
+            }
+        });
+
+
+
+    </script>
+    <!-- ------------------table----------------------------------------------------- -->
+    <!-- -----------------pagination------------------------------- -->
+    <!-- <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="http://127.0.0.1:5501/v1pages/sidebar.html">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">.</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">.</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">.</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">7</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">8</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#">9</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link bordernone clr" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav> -->
+    <!-- ---------------------pagination----------------------- -->
+</body>
+</html>
